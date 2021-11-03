@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Reto3</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+
+    <style>
+
+    * {
+      box-sizing: border-box;
+      }
+
+      table,th,td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 500px;
+      }
+
+      th{
+        background-color: rgb(248, 76, 76);
+      }
+
+      td{
+        background-color: rgb(255, 255, 255);
+      }
+
+      .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 320px;
+        padding-left: 40px;
+      }
+
+      .row2 {
+        padding-top: 30px;
+      }
+
+      .row3{
+        text-align-last: center;
+      }
+
+      .btn{
+        margin-left:70px;
+        width: 120px;
+        height: 30px;
+        background-color: rgb(148, 148, 148);
+      }
+
+      input{
+        width: 300px;
+        height: 30px;
+      }
+
+      fieldset{
+        margin-bottom: 50px;
+        background-color: rgb(231, 231, 231);
+      }
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/room.js"></script>
+    <script type="text/javascript" src="js/categoria.js"></script>
+    <script type="text/javascript" src="js/categoria.js"></script>
+    <script type="text/javascript" src="js/cliente.js"></script>
+    <script type="text/javascript" src="js/reservacion.js"></script>
+    <script type="text/javascript" src="js/reportes.js"></script>
+
+  </head>
+
+  <body>
+    <div class="row3">
+      <h2>Registro de Hotel</h2>
+    </div>
+    
+    <fieldset>
+      <legend>Registro de Habitación</legend>
+    <div class="row">
+      <div class="column">
+        
+        <input type="text" id="Cname" placeholder="Nombre" /> <br /><br />
+        <input type="text" id="Chotel" placeholder="Hotel" /><br /><br />
+        <input type="number" id="Cstars" placeholder="Estrellas" /><br /><br />
+        <input type="text" id="Cdescription" placeholder="Descripción" /> <br /><br />
+      
+      <div class="row2">
+        <button class="btn" onclick="guardarInformacionRoom()">GUARDAR</button>
+        <button class="btn" onclick="traerInformacionRoom()">CONSULTAR</button>
+    </div>
+  </div>
+
+  <div class="column">
+    <br />
+    <table>
+      <thead>
+        <th>Nombre</th>
+        <th>Hotel</th>
+        <th>N° de estrellas</th>
+        <th>Descripción</th>
+      </thead>
+      <tbody id="resultado2"></tbody>
+    </table>
+  </div>
+</div>
+</fieldset>
+
+<fieldset>
+  <legend>Registro de Categorias</legend>
+<div class="row">
+  <div class="column">
+    <input type="text" id="Cname2" placeholder="NOMBRE" /> <br /><br />
+    <input type="text" id="Cdescription2" placeholder="DESCRIPCIÓN" /><br /><br />
+    <div class="row2">
+      <button class="btn" onclick="guardarInformacionCategorias()">GUARDAR</button>
+      <button class="btn" onclick="traerInformacionCategorias()">CONSULTAR</button>
+    </div>
+  </div>
+  <div class="column">
+    <table>
+      <thead>
+          <th>NOMBRE</th>
+          <th>DESCRIPCIÓN</th>
+        </thead>
+      <tbody id="resultado1"></tbody>
+    </table>
+  </div>
+</div>
+</fieldset>
+
+
+<fieldset>
+  <legend>Registro de Clientes</legend>
+<div class="row">
+  <div class="column">
+    <input type="email" id="Cemail" placeholder="E-MAIL"/><br /><br />
+    <input type="password" id="Cpassword3" placeholder="CONTRASEÑA" /> <br /><br />
+    <input type="text" id="Cname3" placeholder="NOMBRE" /><br /><br />
+    <input type="number" id="Cage3" placeholder="EDAD" /><br /><br />
+    <div class="row2">
+      <button class="btn" onclick="guardarInformacionClientes()">GUARDAR</button>
+      <button class="btn" onclick="traerInformacionClientes()">CONSULTAR</button>
+    </div>
+  </div>
+  <div class="column">
+    <table>
+      <thead>
+          <th>E-MAIL</th>
+          <th>CONTRASEÑA</th>
+          <th>NOMBRE</th>
+          <th>EDAD</th>
+        </thead>
+      <tbody id="resultado3"></tbody>
+    </table>
+  </div>
+</div>
+</fieldset>
+
+<fieldset>
+  <legend>Registro de Mensajes</legend>
+<div class="row">
+  <div class="column">
+    <textarea type="text" id="Cmessage4" placeholder="MENSAJE" rows="10" cols="40"></textarea> <br /><br />
+    <div class="row2">
+      <button class="btn" onclick="guardarInformacionMensajes()">GUARDAR</button>
+      <button class="btn" onclick="traerInformacionMensajes()">CONSULTAR</button>
+    </div>
+  </div>
+  <div class="column">
+    <table>
+      <thead>
+          <th>MENSAJE</th>
+        </thead>
+      <tbody id="resultado4"></tbody>
+    </table>
+  </div>
+</div>
+</fieldset>
+
+
+<fieldset>
+  <legend>Registro de Reservaciones</legend>
+<div class="row">
+  <div class="column">
+    <input type="date" id="Cstart5" placeholder="FECHA INICIAL" /><br /><br />
+    <input type="date" id="Cdevolution5" placeholder="FECHA FINAL" /> <br /><br />
+    <input type="text" id="Ccreated" placeholder="ESTADO" /><br /><br />
+    <div class="row2">
+      <button class="btn" onclick="guardarInformacionReservaciones()">GUARDAR</button>
+      <button class="btn" onclick="traerInformacionReservaciones()">CONSULTAR</button>
+    </div>
+  </div>
+  <div class="column">
+    <table>
+      <thead>
+          <th>FECHA INICIAL</th>
+          <th>FECHA FINAL</th>
+          <th>ESTADO</th>
+        </thead>
+      <tbody id="resultado5"></tbody>
+    </table>
+  </div>
+</div>
+</fieldset>
+
+  </body>
+</html>
